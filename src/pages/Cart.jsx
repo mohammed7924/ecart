@@ -34,16 +34,16 @@ function Cart() {
     }
   }
 
-
+// hhhhhhhh
 
 
   return (
 
     <>
-    {/* <Header/> */}
-      <div style={{ paddingTop: "100px" }}>
+      {/* <Header/> */}
+      <div style={{ marginTop: "100px" }}>
         {cart?.length > 0 ? <div className='container pt-5'>
-          <h3 className='font-weight-bold'>Cart Summary</h3>
+          <h2 className='font-weight-bold'>Cart Summary</h2>
           <div className='row'>
             <div className='col-lg-8'>
               <table className='table'>
@@ -66,23 +66,23 @@ function Cart() {
                         <td><img width={'60px'} height={'60px'} src={product?.thumbnail} alt="No Image" /></td>
                         <td>
                           <div className='d-flex align-items-center '>
-                            <span  onClick={()=>handleDecrement(product)} style={{cursor:'pointer'}} className=' fw-bolder me-2 rounded'>-</span>
-                            <input style={{ width: '40px' }} type="text" className='form-control' value={product?.quantity} readOnly />
-                            <span   onClick={()=>dispatch(incrementQuantity(product))} style={{cursor:'pointer'}}  className=' fw-bolder ms-1 '>+</span>
-  
-                          </div>                        
-                          </td>
+                            <span onClick={() => handleDecrement(product)} style={{ cursor: 'pointer' }} className=' fw-bolder  '>-</span>
+                            <input style={{ width: '50px' }} type="text" className='form-control ms-4'   value={product?.quantity} readOnly />
+                            <span onClick={() => dispatch(incrementQuantity(product))} style={{ cursor: 'pointer' }} className=' fw-bolder'>+</span>
+
+                          </div>
+                        </td>
                         <td>${product?.totalPrice}</td>
-                        <td><button onClick={() => dispatch(removefromCart(product?.id))} className='btn btn-link'><i className='fa-solid fa-trash text-danger'></i></button></td>
-  
+                        <td><button onClick={() => dispatch(removefromCart(product?.id))} className='btn btn-link '><i className='fa-solid fa-trash text-danger'></i></button></td>
+
                       </tr>
                     ))
                   }
                 </tbody>
               </table>
-              <div className='float-end mb-5'>
-                <button onClick={() => dispatch(emptyCart())} style={{ borderRadius: '30px' }} className='btn btn-danger me-3'>Empty Cart</button>
-                <Link style={{ borderRadius: '30px' }} to={'/'} className='btn btn-warning'>Shop More</Link>
+              <div className='float-end mb-3'>
+                <button onClick={() => dispatch(emptyCart())} style={{ borderRadius: '10px' }} className='btn btn-danger me-2 '>Empty Cart</button>
+                <Link style={{ borderRadius: '10px' }} to={'/'} className='btn btn-warning me-1 '>Shop More</Link>
               </div>
             </div>
             <div className='col-lg-4'>
@@ -91,22 +91,22 @@ function Cart() {
                 <h5>Total Price : <span className='fw-bolder text-danger'>{totalcartAmount}</span></h5>
                 <div className='d-grid mt-4'>
                   <button onClick={handleChckout} style={{ borderRadius: '30px' }} className='btn btn-success mt-2'>Check Out</button>
-  
+
                 </div>            </div>
             </div>
           </div>
         </div> :
           <div className='align-items-center d-flex flex-column mb-4' >
-  
+
             <img width={'200px'} height={'200px'} src="https://i.postimg.cc/85CZcm30/shopping-cart-removebg-preview.png" alt="" />
-  
+
             <h3 className='mt-3 font-weight-bold'>Your Cart is Empty</h3>
-  
+
           </div>
         }
       </div>
     </>
-   
+
   )
 }
 
